@@ -1,0 +1,32 @@
+.center_show {margin-left: 20%; margin-right: 20%; padding-top: 350px;}
+.topnews { margin: 100px, 10px; }
+.topnews h1 { font-size: 20px; font-weight: bold; line-height: 36px; color: #db6d4c; border-bottom: #db6d4c 4px solid; }
+.topnews h1 {margin-bottom: 10px; }
+.topnews h1 span { float: right; font-size: 12px; font-weight: normal; }
+.topnews h1 span a { display: inline-block; padding: 0 5px; }
+.topnews h1 span a:hover { color: #000 }
+.blogs { padding: 10px 0; position: relative; border-bottom: #CCC 1px solid; overflow: hidden }
+.blogs h3 { font-size: 17px; font-weight: bold; transition: all .5s; margin-bottom: 10px }
+.blogs h3 a { color: #474645;margin-right:10%;}
+.blogs ul {padding-top: 5px;}
+.blogs ul p {font-size: 15px;}
+.blogs h3 a:hover { color: #066; text-decoration: underline }
+.blogs figure { float: left; width: 25%; overflow: hidden; }
+.blogs figure img { width: 100%; margin: auto; -moz-transition: all 1s; -webkit-transition: all 0.5s; -o-transition: all 0.5s; transition: all 0.5s; }
+.blogs figure:hover img { -moz-transform: scale(1.1); -webkit-transform: scale(1.1); -o-transform: scale(1.1); -ms-transform: scale(1.1); }
+.blogs ul { float: right; line-height: 22px; width: 72%; color: #756F71;}
+.blogs {   background:white;  } 
+.blogs { border: 2px solid white; border-radius: 10px;}
+.blogs {margin-bottom: 50px;}
+.autor { overflow: hidden; clear: both; margin: 10px 0; display: inline-block; color: #838383; width: 100%;  }
+.autor span { margin: 0 10px 0 0; padding-left: 20px }
+.autor span a { color: #759b08; }
+.autor span a:hover { text-decoration: underline }
+.lm { background: url(../img/newsbg01.png) no-repeat left center }
+.dtime { background: url(../img/newsbg02.png) no-repeat left center }
+.viewnum { background: url(../img/newsbg04.png) no-repeat left center }
+.pingl { background: url(../img/newsbg03.png) no-repeat left center }
+.tit01 h3 { line-height: 40px; color: #38485A; font-size: 18px; border-bottom: 1px solid #E6E6E6; height: 40px }
+.blank {margin-top: 150px;}
+.blank-bottom {margin-bottom: 100px;}
+.journal_summary{ width:90%; height:90px; text-align: center; }

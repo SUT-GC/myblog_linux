@@ -1,0 +1,77 @@
+.messagebox{
+	border: solid 1px #999;
+	margin-top: 10%;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 10%;
+	background-color: #999;
+	padding-bottom: 10%;
+}
+
+.messagebox-sendword{
+	border: solid 1px white;
+	margin: 20px 10px;
+	border-radius: 10px;
+	background-color: white;
+}
+
+.writeword{
+	border: solid 1px white;
+	margin: 20px 10px;
+	border-radius: 10px;
+	background-color: white;
+	padding: 5px;
+}
+
+.floor-left {
+	float: left;
+}
+
+.floor-left>img{
+	margin-top: 0px;
+	margin-right: 10px;
+}
+
+.floor-right{
+	margin-left: 60px;
+}
+
+.reply-left{
+	float: left;
+}
+.reply-left>img{
+	margin-top: 10px;
+	margin-right: 10px;
+	width: 40px;
+}
+
+
+.messagebox-message-content{
+	border: solid 1px white;
+	margin: 20px 10px;
+	background-color: white;
+	padding: 5px;
+}
+
+.messagebox-message-content-floor{
+	border: none 1px #999;
+	margin: 20px 10px;
+	background-color: white;
+	padding: 5px;
+}
+
+.messagebox-message-num{
+	margin-left: 2%;
+	font-size: 18px;
+}
+
+.messgebox-zh{
+	margin-left: 1%;
+}
+.messagebox-nav{
+	padding-left: 55%;
+}
+
+.b{
+	background-color: #DDDDDD;
+}
