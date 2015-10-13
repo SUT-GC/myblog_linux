@@ -269,4 +269,26 @@ public class MessDao {
 		}
 		return result;
 	}
+	
+	/*
+	 * 10
+	 * 功能: 查询出floor_id的最大值
+	 * sql: select max(floor_id) from wb_messbox;
+	 * 方法名: selectMaxFloorID
+	 * 参数: 空
+	 * 返回值: int result
+	 */
+	public static int selectMaxFloorID(){
+		int result = 0;
+		String sql = "select max(floor_id) from wb_messbox;";
+		try {
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()){
+				result = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

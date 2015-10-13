@@ -77,7 +77,7 @@ public class MessageRelease extends HttpServlet {
 		String firstMessContent = "";
 		Message message = new Message();
 		if(!request.getParameter("userid").equals("-1")){
-			maxfloorid = MessDao.countFirstMess();
+			maxfloorid = MessDao.selectMaxFloorID();
 			if(request.getParameter("firstmessage")!=null){
 				firstMessContent = request.getParameter("firstmessage");
 				System.out.println("~"+firstMessContent+"~");
