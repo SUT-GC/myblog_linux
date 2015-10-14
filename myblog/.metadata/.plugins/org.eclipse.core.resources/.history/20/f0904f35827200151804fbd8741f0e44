@@ -177,7 +177,7 @@
                         <hr/>
                         <div class="input_summary">
                             <span class="input_title_label">the summary of your article:</span>
-                            <textarea name="article_summary" class="input_summary_textarea" style="width:69%;" rows="3;"></textarea><br/><br/><br/><br/><br/>
+                            <textarea name="article_summary" class="input_summary_textarea" style="width:68%;" rows="3;"></textarea><br/><br/><br/><br/><br/>
                         </div>
                         <hr/>
                         <div class="input_content">
