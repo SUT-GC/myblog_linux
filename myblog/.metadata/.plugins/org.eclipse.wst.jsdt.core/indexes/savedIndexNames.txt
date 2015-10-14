@@ -1,13 +1,8 @@
 INDEX VERSION 1.3+/home/gc/web/myblog_linux/myblog/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-26760272.index
 90211950.index
-4008511973.index
-3259076158.index
-3595471831.index
-437396984.index
 3251378105.index
-883584752.index
-4024858965.index
-821801467.index
-2565549504.index
-1653932925.index
+3595471831.index
+4008511973.index
+1600052948.index
+437396984.index
+3259076158.index

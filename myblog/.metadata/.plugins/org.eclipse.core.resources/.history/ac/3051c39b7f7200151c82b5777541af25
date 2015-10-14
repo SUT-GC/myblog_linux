@@ -7,7 +7,7 @@ import empty.User;
 
 public class TestJiaMi {
 	public static void main(String[] args){
-		String src = "g!o@u#c$h%a^o&";
-		System.out.println(Md5.md5Encode(src));
+		String src = "123456";
+		System.out.println(Base64.base64Encoder(src));
 	}
 }
