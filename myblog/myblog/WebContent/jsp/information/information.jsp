@@ -244,7 +244,7 @@
         主页
         <span class="three-d-box"><span class="front">主页</span><span class="back">主页</span></span>
       </a></li>
-      <li><a href="Journal.jsp" class="three-d active">
+      <li><a href="../Journal/Journal.jsp" class="three-d ">
         日志
         <span class="three-d-box"><span class="front">日志</span><span class="back">日志</span></span>
       </a></li>
@@ -252,7 +252,7 @@
         TA
         <span class="three-d-box"><span class="front">TA</span><span class="back">TA</span></span>
       </a></li>
-      <li><a href="../information/information.jsp" class="three-d">
+      <li><a href="../information/information.jsp" class="three-d active">
         博主
         <span class="three-d-box"><span class="front">博主</span><span class="back">博主</span></span>
       </a></li>
@@ -290,7 +290,7 @@
         登陆成功/登出
         <span class="three-d-box"><span class="front">登陆成功/登出</span><span class="back"><%=user.getUser_nick()%></span></span></a>
         <ul class="clearfix unstyled drop-menu">
-         <li><a href="/myblog/updateheadimg.jsp" class="three-d">
+         <li><a href="/myblog/jsp/upload/updateheadimg.jsp" class="three-d">
             修改头像
             <span class="three-d-box"><span class="front">修改头像</span><span class="back">修改头像</span></span>
           </a></li>

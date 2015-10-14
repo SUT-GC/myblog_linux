@@ -47,6 +47,8 @@ public class FileUpload extends HttpServlet {
 			file.mkdirs();
 		}
 		
+		
+		
 		SmartUpload su = new SmartUpload();
 		su.initialize(getServletConfig(), request, response);
 		su.setMaxFileSize(1024*1024*10);

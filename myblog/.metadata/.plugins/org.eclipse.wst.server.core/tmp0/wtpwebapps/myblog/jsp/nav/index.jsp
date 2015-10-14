@@ -102,7 +102,7 @@
         登陆成功/登出
         <span class="three-d-box"><span class="front">登陆成功/登出</span><span class="back"><%=user.getUser_nick()%></span></span></a>
         <ul class="clearfix unstyled drop-menu">
-          <li><a href="/myblog/updateheadimg.jsp" class="three-d">
+          <li><a href="/myblog/jsp/upload/updateheadimg.jsp" class="three-d">
             修改头像
             <span class="three-d-box"><span class="front">修改头像</span><span class="back">修改头像</span></span>
           </a></li>

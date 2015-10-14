@@ -27,6 +27,7 @@ public class UserDao {
 	}
 
 	/*
+	 * 1
 	 * 功能:想表wb_user中插入数据 
 	 * sql: insert wb_user (user_email, user_pass, user_nick,user_imagepath, user_isadmin)
 	 *	values("gc@qq.com", "123", "gc", "111","1");
@@ -53,6 +54,7 @@ public class UserDao {
 	}
 
 	/*
+	 * 2
 	 * 功能:查询表wb_user，并且将所有的数据查询并且全部返回 
 	 * sql: select * from wb_user 函数名: selectUser
 	 * 参数:无 
@@ -81,6 +83,7 @@ public class UserDao {
 	}
 
 	/*
+	 * 3
 	 * 功能:能完成按user_id查询表wb_user的功能,并返回一个User对象 
 	 * sql: select * from wb_user where
 	 * user_id = 'id';
@@ -110,6 +113,7 @@ public class UserDao {
 	}
 
 	/*
+	 * 4
 	 * 功能:根据user_email查询用户信息
 	 * sql: select * from wb_user where user_email = 'gc@qq.com';
 	 * 方法名: selectUserByEmail
@@ -138,6 +142,7 @@ public class UserDao {
 	}
 	
 	/*
+	 * 5
 	 * 功能: 根据user_id删除记录
 	 * sql: delete from wb_user where user_id = '1'
 	 * 函数名: deleteUser
@@ -159,6 +164,7 @@ public class UserDao {
 	}
 	
 	/*
+	 * 6
 	 * 作用:根据user_id查询并且更新数据库
 	 * sql: update wb_user set user_email = '123',user_pass='123', user_nick='123', user_imagepath='123',user_isadmin='1' where user_id = '1';
 	 * 函数名: updateUser
@@ -179,6 +185,49 @@ public class UserDao {
 						+ "where user_id = '"+user.getUser_id()+"';";
 		try {
 			result = stmt.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	/*
+	 * 7
+	 * 功能: 根据user_id 更新user_imagepath
+	 * sql: update wb_user set user_imagepath = 'default.jpg' where user_id = '2';
+	 * 方法名: updateUserImagePathByID
+	 * 参数: int userid, String filename
+	 * 返回值: int result, String filename
+	 * 0:执行sql失败
+	 * 1:执行成功
+	 */
+	public static int updateUserImagePathByID(int userid, String filename){
+		int result = 0;
+		String sql = "update wb_user set user_imagepath = '"+filename+"' where user_id = '"+userid+"';";
+		try {
+			result = stmt.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	/*
+	 * 8
+	 * 功能:根据user_id产出user_imagepath
+	 * sql: select user_imagepath from wb_user where user_id = '20';
+	 * 方法名: selectUserImagePathByID
+	 * 参数: int userid
+	 * 返回值: String result;
+	 */
+	public static String selectUserImagePathByID(int userid){
+		String result = "";
+		String sql = "select user_imagepath from wb_user where user_id = '"+userid+"';";
+		try {
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()){
+				result = rs.getString("user_imagepath");
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

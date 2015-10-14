@@ -134,6 +134,7 @@ public class RegisteredDo extends HttpServlet {
 		
 		
 		if((emailresult + nickresult + pwresult + pwresult) == 4){
+			user.setUser_imagepath("default.jpg");
 			if(UserDao.insertUser(user) == 1){
 				succreg += "rs" ;
 				response.sendRedirect("jsp/login/login.jsp?Rm="+succreg);
