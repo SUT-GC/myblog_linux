@@ -1,3 +1,11 @@
+<%@page import="dao.MessDao"%>
+<%@page import="dao.ReplyDao"%>
+<%@page import="dao.JournalDao"%>
+<%@page import="dao.AdminDao"%>
+<%@page import="dao.UserDao"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
+<%@page import="com.sun.jmx.snmp.Timestamp"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -113,8 +121,30 @@
 				<div class="row">
 					<div class="alert alert-success bootstrap-admin-alert">
 						<button type="button" class="close" data-dismiss="alert">×</button>
-						<h4>Successful visit of Backstage:&nbsp&nbsp&nbsp&nbsp
-							2015年9月9日 15:21</h4>
+						<h4>成功登陆后台页面的时间为:&nbsp&nbsp&nbsp&nbsp
+							<% 
+								SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+								out.print(sdf.format(new Date()));
+								
+								//定义各个最大限度
+								//注册用户最大值为5000
+								double maxUser = 500;
+								//Admin用户最大值为10
+								double maxAdmin = 10;
+								//发表日志最大值为500
+								double maxArticle = 500;
+								//日志回复总数最大值为5000
+								double maxReply = 5000;
+								//留言板最大一级留言数100
+								double maxFirstMessage = 100;
+								//留言板最大二级留言数1000
+								double maxSecoundMessage = 1000;
+								//最大网页点击量1000
+								double maxClick = 1000;
+								//最大IP访问数500
+								double maxIp = 100;
+							%>
+						</h4>
 					</div>
 				</div>
 
@@ -126,62 +156,135 @@
 								<span class="badge"></span>
 							</div>
 						</div>
-						<div
-							class="bootstrap-admin-panel-content bootstrap-admin-no-table-panel-content collapse in">
+						<div class="bootstrap-admin-panel-content bootstrap-admin-no-table-panel-content collapse in">
 							<div class="col-md-3">
-								<div class="easyPieChart" data-percent="73"
+								<div class="easyPieChart" data-percent="<%out.print((1.0*UserDao.countUserSum()/maxUser)*100); %>"
 									style="width: 110px; height: 110px; line-height: 110px;">
-									73%
+									<%=UserDao.countUserSum()%>
 									<canvas width="110" height="110"></canvas>
 								</div>
 								<div class="chart-bottom-heading">
-									<span class="label label-info">访问量</span>
+									<span class="label label-info">注册用户</span>
 								</div>
 							</div>
 							<div class="col-md-3">
-								<div class="easyPieChart" data-percent="53"
+								<div class="easyPieChart" data-percent="<%=((1.0*AdminDao.countAdminSum()/maxAdmin)*100)%>"
 									style="width: 110px; height: 110px; line-height: 110px;">
-									53%
+									<%=AdminDao.countAdminSum() %>
 									<canvas width="110" height="110"></canvas>
 								</div>
 								<div class="chart-bottom-heading">
-									<span class="label label-info">注册量</span>
+									<span class="label label-info">Admin用户</span>
 								</div>
 							</div>
 							<div class="col-md-3">
-								<div class="easyPieChart" data-percent="83"
+								<div class="easyPieChart" data-percent="<%=((1.0*JournalDao.countJournalSum()/maxArticle)*100)%>"
 									style="width: 110px; height: 110px; line-height: 110px;">
-									83%
+									<%=JournalDao.countJournalSum()%>
 									<canvas width="110" height="110"></canvas>
 								</div>
 								<div class="chart-bottom-heading">
-									<span class="label label-info">日志量</span>
+									<span class="label label-info">发表日志</span>
 								</div>
 							</div>
 							<div class="col-md-3">
-								<div class="easyPieChart" data-percent="13"
+								<div class="easyPieChart" data-percent="<%=((1.0*ReplyDao.countReplySum()/maxReply)*100) %>"
+									style="width: 110px; height: 110px; line-height: 110px;">
+									<%=ReplyDao.countReplySum() %>
+									<canvas width="110" height="110"></canvas>
+								</div>
+								<div class="chart-bottom-heading">
+									<span class="label label-info">日志留言</span>
+								</div>
+							</div>
+						</div>
+						<div class="bootstrap-admin-panel-content bootstrap-admin-no-table-panel-content collapse in">
+							<div class="col-md-3">
+								<div class="easyPieChart" data-percent="<%=((1.0*MessDao.countFirstMess()/maxFirstMessage)*100) %>"
+									style="width: 110px; height: 110px; line-height: 110px;">
+									<%=MessDao.countFirstMess() %>
+									<canvas width="110" height="110"></canvas>
+								</div>
+								<div class="chart-bottom-heading">
+									<span class="label label-info">一级留言</span>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="easyPieChart" data-percent="<%=((1.0*MessDao.countSecoundMess()/maxSecoundMessage)*100) %>"
+									style="width: 110px; height: 110px; line-height: 110px;">
+									<%=MessDao.countSecoundMess() %>
+									<canvas width="110" height="110"></canvas>
+								</div>
+								<div class="chart-bottom-heading">
+									<span class="label label-info">二级留言</span>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="easyPieChart" data-percent="50"
+									style="width: 110px; height: 110px; line-height: 110px;">
+									50%
+									<canvas width="110" height="110"></canvas>
+								</div>
+								<div class="chart-bottom-heading">
+									<span class="label label-info">网页点击量</span>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="easyPieChart" data-percent="50"
 									style="width: 110px; height: 110px; line-height: 110px;">
 									13%
 									<canvas width="110" height="110"></canvas>
 								</div>
 								<div class="chart-bottom-heading">
-									<span class="label label-info">留言量</span>
+									<span class="label label-info">浏览Ip量</span>
 								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-
-
-
-				<div class="row">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<div class="text-muted bootstrap-admin-box-title">相册</div>
-							<div class="pull-right">
-								<span class="badge">1,462</span>
+						<div class="bootstrap-admin-panel-content bootstrap-admin-no-table-panel-content collapse in">
+							<div class="col-md-3">
+								<div class="easyPieChart" data-percent="50"
+									style="width: 110px; height: 110px; line-height: 110px;">
+									50%
+									<canvas width="110" height="110"></canvas>
+								</div>
+								<div class="chart-bottom-heading">
+									<span class="label label-info">预留1</span>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="easyPieChart" data-percent="50"
+									style="width: 110px; height: 110px; line-height: 110px;">
+									50%
+									<canvas width="110" height="110"></canvas>
+								</div>
+								<div class="chart-bottom-heading">
+									<span class="label label-info">预留2</span>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="easyPieChart" data-percent="50"
+									style="width: 110px; height: 110px; line-height: 110px;">
+									50%
+									<canvas width="110" height="110"></canvas>
+								</div>
+								<div class="chart-bottom-heading">
+									<span class="label label-info">预留3</span>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="easyPieChart" data-percent="50"
+									style="width: 110px; height: 110px; line-height: 110px;">
+									50%
+									<canvas width="110" height="110"></canvas>
+								</div>
+								<div class="chart-bottom-heading">
+									<span class="label label-info">预留4</span>
+								</div>
 							</div>
 						</div>
+						<hr/>
+						<br/>
+						<br/>
 					</div>
 				</div>
 			</div>

@@ -235,6 +235,28 @@ public class UserDao {
 	}
 	
 	/*
+	 * 9
+	 * 功能: 计算出已经注册用户的总数
+	 * sql: select count(*) from wb_user;
+	 * 方法名: countUserSum
+	 * 参数: 无
+	 * 返回值: int sum;
+	 */
+	public static int countUserSum(){
+		int sum = 0;
+		String sql = "select count(*) from wb_user;";
+		try {
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()){
+				sum = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return sum;
+	}
+	
+	/*
 	 * 无参数构造器
 	 */
 	public UserDao() {

@@ -18,6 +18,7 @@ public class AdminDao {
     }
     
     /*
+     * 1
      * 功能:查询出wb_admin数据库中所有记录
      * sql:select * from wb_admin;
      * 方法名:selectAdmins
@@ -45,6 +46,7 @@ public class AdminDao {
     }
     
     /*
+     * 2
      * 功能:根据admin_id查询出一条Admin记录
      * sql:select * from wb_admin where admin_id = '0';
      * 方法名:selectAdminByID
@@ -71,6 +73,7 @@ public class AdminDao {
     }
     
     /*
+     * 3
      * 功能:根据admin_username查询出一条Admin记录
      * sql:select * from wb_admin where admin_username = 'gc';
      * 方法名:selectAdminByID
@@ -97,6 +100,7 @@ public class AdminDao {
     }
     
     /*
+     * 4
      * 功能: 插入一个Admin用户
      * sql: insert wb_admin (admin_username, admin_password) values('tian', 'tian');
      * 方法名: insertAdmin
@@ -117,6 +121,7 @@ public class AdminDao {
     }
     
     /*
+     * 5
      * 功能:根据admin_id更改表中的一条记录
      * sql:update wb_admin set admin_username='Tian', admin_password = '123' where admin_id = '0';
      * 方法名:updateAdminByID
@@ -138,6 +143,7 @@ public class AdminDao {
     }
     
     /*
+     * 6
      * 功能:按照传入的admin_id删除相关的记录
      * sql: delete from wb_admin where admin_id = '0';
      * 方法名: deleteAdminByID
@@ -149,6 +155,28 @@ public class AdminDao {
     	String sql = "delete from wb_admin where admin_id = '"+admin_id+"';";
     	try {
 			result = stmt.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	return result;
+    }
+    
+    /*
+     * 7
+     * 功能: 统计Admin用户的总数
+     * sql: SELECT count( * ) FROM wb_admin;
+     * 方法名: countAdminSum
+     * 参数: 空
+     * 返回值: int result;
+     */
+    public static int countAdminSum(){
+    	int result = 0;
+    	String sql = "SELECT count( * ) FROM wb_admin;";
+    	try {
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()){
+				result = rs.getInt(1);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -14,12 +14,13 @@ import empty.Message;
  * 2:功能: 按照messbox_id搜索留言记录
  * 3:功能:根据messbox_id删除留言记录
  * 4:功能: 查询出所有留言为一级留言的记录(按照floor_id倒叙)
- * 5:功能: 计算出所有以及留言的总数
+ * 5:功能: 计算出所有一级留言的总数
  * 6:功能: 根据传入的范围，查询出该范围的记录
  * 7:功能: 查出某一楼层的一级message
  * 8:功能: 查出对某一级留言的回复
  * 9:功能: 插入新的一级留言记录
  * 10:功能: 查询出floor_id的最大值
+ * 11:功能: 统计出所有二级留言总数
  */
 public class MessDao {
 	private static DB_Data db_data;
@@ -304,5 +305,27 @@ public class MessDao {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	
+	/*
+	 * 11
+	 * 功能: 计算出所有二级留言的总数
+	 * sql: select count(*) from wb_messbox where touser_id <> '0';
+	 * 方法名: countSecoundMess
+	 * 参数: 无
+	 * 返回值: int sum;
+	 */
+	public static int countSecoundMess(){
+		int sum = 0;
+		String sql = "select count(*) from wb_messbox where touser_id <> '0';";
+		try {
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()){
+				sum = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return sum;
 	}
 }

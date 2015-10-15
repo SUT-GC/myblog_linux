@@ -286,4 +286,26 @@ public class JournalDao {
 		return list;
 	}
 	
+	/*
+	 * 10
+	 * 功能: 统计发表的日志总量
+	 * sql : SELECT count( * ) FROM wb_article;
+     * 方法名: countJournalSum
+     * 参数: 空
+     * 返回值: int result;
+     */
+    public static int countJournalSum(){
+    	int result = 0;
+    	String sql = "SELECT count( * ) FROM wb_article;";
+    	try {
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()){
+				result = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	return result;
+    }
+	
 }

@@ -169,4 +169,25 @@ public class ReplyDao {
 		}
 		return result;
 	}
+	
+	/*
+	 * 功能: 计算出所有回复的总数
+	 * sql: select count(*) from wb_reply;
+	 * 方法名: countReplySum
+	 * 参数: 无
+	 * 返回值: int sum;
+	 */
+	public static int countReplySum(){
+		int sum = 0;
+		String sql = "select count(*) from wb_reply;";
+		try {
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()){
+				sum = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return sum;
+	}
 }
