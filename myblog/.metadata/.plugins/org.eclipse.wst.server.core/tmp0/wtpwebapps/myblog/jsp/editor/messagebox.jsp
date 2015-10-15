@@ -261,8 +261,13 @@
                         <%
                         	//计算需要多少页面按钮
                         	int sum = MessDao.countFirstMess();
-                        	int pagecount = (sum / 10)+1;
-                        	if(pagecount <= 10){
+                        	int pagecount = 1;
+                        	if(sum % 10 == 0){
+                        		pagecount = sum / 10;
+                        	}else{
+                        		pagecount = sum / 10 +1;
+                        	}
+                        	if(pagecount <= 20){
                         		for(i = 1; i <= pagecount; i++){
                         %>
                         <li <%if(pagec == i){ %>class="active"<%} %>><a href="?page=<%=i%>" ><%=i%></a></li>

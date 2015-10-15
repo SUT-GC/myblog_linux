@@ -263,10 +263,9 @@
                         	int sum = MessDao.countFirstMess();
                         	int pagecount = 1;
                         	if(sum % 10 == 0){
-                        		pagecount = sum / 10;
-                        	}else{
-                        		pagecount = sum / 10 +1;
+                        		pagecount = sum /10;
                         	}
+                        	
                         	if(pagecount <= 20){
                         		for(i = 1; i <= pagecount; i++){
                         %>
