@@ -232,7 +232,7 @@
 							<div class="col-md-3">
 								<div class="easyPieChart" data-percent="50"
 									style="width: 110px; height: 110px; line-height: 110px;">
-									13%
+									50%
 									<canvas width="110" height="110"></canvas>
 								</div>
 								<div class="chart-bottom-heading">

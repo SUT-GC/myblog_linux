@@ -3,7 +3,6 @@ package servlet;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -70,22 +69,18 @@ public class UpdateHeadImg extends HttpServlet {
 		String imageuplodrelease = "";
 		String filename = "";
 		
-		
-		
 		if(request.getParameter("userid")!=null){
 			int userid = Integer.parseInt(request.getParameter("userid"));
-			String newfilename = ""+(new Date())+userid;
 			try {
 				su.setDeniedFilesList("rar,exe,txt,jsp,js");
 				su.upload();
 				com.jspsmart.upload.File tempfile = su.getFiles().getFile(0);
-				String uploadfilename = tempfile.getFieldName();
-				if(!UserDao.selectUserImagePathByID(userid).equals("default.jpg")){
-					File oldfile = new File(filepath+java.io.File.separator+UserDao.selectUserImagePathByID(userid));
-					oldfile.delete();
-				}
-				tempfile.saveAs(filepath+java.io.File.separator+newfilename+uploadfilename);
-				if(UserDao.updateUserImagePathByID(userid, newfilename+uploadfilename) == 1){
+				filename = tempfile.getFileName();
+				System.out.println("filename="+filename);
+				File oldfile = new File(filepath+java.io.File.separator+UserDao.selectUserImagePathByID(userid));
+				oldfile.delete();
+				su.save(filepath);
+				if(UserDao.updateUserImagePathByID(userid, filename) == 1){
 					imageuplodrelease = "1";
 				}else{
 					imageuplodrelease = "5";

@@ -80,12 +80,12 @@ public class UpdateHeadImg extends HttpServlet {
 				su.upload();
 				com.jspsmart.upload.File tempfile = su.getFiles().getFile(0);
 				String uploadfilename = tempfile.getFieldName();
-				if(!UserDao.selectUserImagePathByID(userid).equals("default.jpg")){
+				if(UserDao.selectUserImagePathByID(userid).equals("default.jpg")){
 					File oldfile = new File(filepath+java.io.File.separator+UserDao.selectUserImagePathByID(userid));
 					oldfile.delete();
 				}
 				tempfile.saveAs(filepath+java.io.File.separator+newfilename+uploadfilename);
-				if(UserDao.updateUserImagePathByID(userid, newfilename+uploadfilename) == 1){
+				if(UserDao.updateUserImagePathByID(userid, uploadfilename) == 1){
 					imageuplodrelease = "1";
 				}else{
 					imageuplodrelease = "5";
