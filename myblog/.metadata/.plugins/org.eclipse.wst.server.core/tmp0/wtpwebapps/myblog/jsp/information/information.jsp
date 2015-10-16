@@ -394,10 +394,10 @@
                     </b>
                 </p>
                 <p class="history_R yearalmostr">
-                    <span class="history_2005_span blue">留白</span>
+                    <span class="history_2005_span blue">邮箱</span>
                     <b class="history_2005_b blue_R">
                         <span class="history_r_month"><br/></span>
-                        <span class="history_r_text">。。。</span>
+                        <span class="history_r_text" style="font-size: 17px;">sut_gouc@foxmail.com</span>
                     </b>
                 </p>
                 <p class="history_R year211">

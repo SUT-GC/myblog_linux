@@ -160,7 +160,7 @@
                                        user_nick:
                                     </span>
                                     <span class="message_show_content">
-                                        <a href="user_show_information.jsp"><%=UserDao.selectUserByID(message.getUser_id()).getUser_nick()%></a>
+                                        <a><%=UserDao.selectUserByID(message.getUser_id()).getUser_nick()%></a>
                                     </span>
                                 </div>
                                 <hr/>
@@ -169,7 +169,7 @@
                                        touser_nick:
                                     </span>
                                     <span class="message_show_content">
-                                       <a href="user_show_information.jsp"><%=UserDao.selectUserByID(message.getTouser_id()).getUser_nick()%></a>
+                                       <a ><%=UserDao.selectUserByID(message.getTouser_id()).getUser_nick()%></a>
                                     </span>
                                 </div>
                                 <hr/>

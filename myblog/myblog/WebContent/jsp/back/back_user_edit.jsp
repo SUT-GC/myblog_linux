@@ -171,7 +171,7 @@
                                 <hr/>
                                 <div class="user_edit_imagepath">
                                     <span class="user_edit_imagepath_label">user_imagepath</span>
-                                    <input name="new_user_imagepath" type="text" class="form-control input_title_content" value="<%=user.getUser_imagepath()%>">
+                                    <input readonly name="new_user_imagepath" type="text" class="form-control input_title_content" value="<%=user.getUser_imagepath()%>">
                                 </div>
                                 <hr/>
                                  <div class="user_edit_isadmin">

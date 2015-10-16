@@ -162,7 +162,7 @@
         <h2 class="messgebox-zh">留言板:</h2>
         <div class="messagebox-sendword">
             <h3 class="messagebox-sendword-title" style='margin-left:10px;color:#0000CC'>主人寄语</h3>
-            <p class="messagebox-sendword-content" style='margin-left:10px; color:#0000CC;font-size:17px'>这是主人寄语的内容（阿迪几啊考虑到加拉看的叫卡拉胶打卡机打卡机都卡死了加大了肯定就爱看劳动局阿卡拉）</p>
+            <p class="messagebox-sendword-content" style='margin-left:10px; color:#0000CC;font-size:17px'>因技术问题，现阶段必须用户登录才能留言，日后会加以改进 。<br/>如果有什么建议，或者遇到bug，或者技术上的要求，请进行留言反馈，博主不甚感激。<br/> 如果有文件上的需求或者有具体问题要提问，建议注册时填写真的Email或者留言里写下Email，以便于博主发邮件解答。<br/><span style="color:#FF0000;">请大家使用文明用语进行留言，否则管理员会对该留言进行删除</span></p>
         </div>
         <!--文本编写框start-->
         <div class="writeword">
@@ -302,6 +302,14 @@
         </div>
     </div>
 <!--留言板end-->
+	<!--留白start-->
+		<hr/>
+		<div style="text-align: center;">
+		  <div class="blank">Designed and built with all the love in the world by <a href="#">@GC</a></div>
+		  <div class="blank-bottom">用爱创造世界</div>
+		 </div>
+		 <hr/>
+		<!--留白end-->
 </div>
 </body>
 <script type="text/javascript">

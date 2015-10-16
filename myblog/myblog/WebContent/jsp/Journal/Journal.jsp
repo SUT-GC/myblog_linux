@@ -414,6 +414,14 @@
 			</section>
 		</div><!-- /container -->
 		<div class="footer-banner" style="width:728px; margin:160px auto 100px"></div>
+		<hr/>
+		<!--留白start-->
+		<div style="text-align: center;">
+		  <div class="blank">Designed and built with all the love in the world by <a href="#">@GC</a></div>
+		  <div class="blank-bottom">用爱创造世界</div>
+		 </div>
+		<!--留白end-->
+		<hr/>
 		<script src="js/masonry.pkgd.min.js"></script>
 		<script src="js/imagesloaded.pkgd.min.js"></script>
 		<script src="js/classie.js"></script>

@@ -127,7 +127,7 @@
 								out.print(sdf.format(new Date()));
 								
 								//定义各个最大限度
-								//注册用户最大值为5000
+								//注册用户最大值为500
 								double maxUser = 500;
 								//Admin用户最大值为10
 								double maxAdmin = 10;
@@ -135,13 +135,13 @@
 								double maxArticle = 500;
 								//日志回复总数最大值为5000
 								double maxReply = 5000;
-								//留言板最大一级留言数100
-								double maxFirstMessage = 100;
-								//留言板最大二级留言数1000
-								double maxSecoundMessage = 1000;
+								//留言板最大一级留言数200
+								double maxFirstMessage = 200;
+								//留言板最大二级留言数2000
+								double maxSecoundMessage = 2000;
 								//最大网页点击量1000
 								double maxClick = 1000;
-								//最大IP访问数500
+								//最大IP访问数100
 								double maxIp = 100;
 							%>
 						</h4>
