@@ -48,7 +48,7 @@ body {
 				<p>link list:</p>
 				<ol>
 					<li>百度: <a href="https://www.baidu.com" target="_blank">www.baidu.com</a></li>
-					<li>cd 沈阳工业大学官网: <a href="http://www.sut.edu.cn/" target="_blank">www.sut.edu.cn</a></li>
+					<li>沈阳工业大学官网: <a href="http://www.sut.edu.cn/" target="_blank">www.sut.edu.cn</a></li>
 					<li>SUTACM: <a href="https://acm.sut.edu.cn" target="_blank">acm.sut.edu.cn</a></li>
 					<li>SUTOJ: <a href="http://sutoj.cwengo.com/" target="_blank">sutoj.cwengo.com</a></li>
 					<li>HDUOJ: <a href="http://acm.hdu.edu.cn/" target="_blank">acm.hdu.edu.cn </a></li>
