@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+download from mianfeimoban.com
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Sticky Notes by Free Css Templates</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="default.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+body {
+	background-color: #000;
+}
+</style>
+</head>
+<body>
+<div id="header">
+	<h1 style="margin-left: 30px;"><a >Gc blog </a></h1>
+</div>
+<div id="pages">
+	<h2>Pages</h2>
+	<ul>
+		<li><a id="page1" href="../nav/index.jsp">博客主页</a></li>
+		<li><a id="page2" href="../Journal/Journal.jsp">博客日志</a></li>
+		<li><a id="page3" href="../information/information.jsp">博主信息</a></li>
+		<li><a id="page4" href="../editor/messagebox.jsp">留言板</a></li>
+		<li><a id="page5" href="../login/login.jsp">登陆/注册</a></li>
+	</ul>
+</div>
+<div id="content">
+	<div id="posts">
+		<div class="post">
+			<h2 class="title">该页面功能正在开发ing......</h2>
+			<h3 class="posted">The page function is being developed....</h3>
+			<div class="story">
+				<p><h1><em><strong>该页面正在开发,敬请关注.</strong></em></h1> </p>
+				<p><h4><em>为了补偿给您带来的不便,我们在下面将会给您提供方便的连接.</em></h4> </p>
+			</div>
+			<div class="meta">
+				<p><a>2015-10-17 15:00</a></p>
+			</div>
+		</div>
+		<div class="post">
+			<h2 class="title">提供的连接</h2>
+			<h3 class="posted">Provided Links......</h3>
+			<div class="story">
+				<p>link list:</p>
+				<ol>
+					<li>百度: <a href="https://www.baidu.com">www.baidu.com</a></li>
+					<li>SUTACM: <a href="https://acm.sut.edu.cn">acm.sut.edu.cn</a></li>
+					<li>SUTOJ: <a href="http://sutoj.cwengo.com/">sutoj.cwengo.com</a></li>
+					<li>HDUOJ: <a href="http://acm.hdu.edu.cn/">acm.hdu.edu.cn </a></li>
+					<li>POJ: <a href="http://poj.org/">poj.org</a></li>
+					<li>沈阳工业大学官网: <a href="http://www.sut.edu.cn/">www.sut.edu.cn</a></li>
+				</ol>
+				<p>A blockquote: </p>
+				<blockquote>
+					<p>&#8220;Et pulvinar pede ligula a  sapien. Donec fermentum condimentum nisi. Proin iaculis mauris id lorem  viverra molestie. Duis vel orci. Nam consequat. Morbi nec lacus.&#8221;</p>
+				</blockquote>
+			</div>
+			<div class="meta">
+				<p>Filed under <a href="#" class="category">Uncategorized</a> | <a href="#" class="comment">1 Comment &raquo;</a></p>
+			</div>
+		</div>
+	</div>
+	</div>
+<script type="text/javascript" class="autoinsert" src="js/jquery-1.2.6.min.js"></script> 
+<script src="js/snowfall.jquery.js"></script> 
+<script>
+        $(document).snowfall('clear');
+        $(document).snowfall({
+            image: "images/huaban.png",
+            flakeCount:30,
+            minSize: 5,
+            maxSize: 22
+        });
+    </script>
+</body>
+</html>

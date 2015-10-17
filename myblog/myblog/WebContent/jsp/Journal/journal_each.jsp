@@ -99,7 +99,7 @@
                     <div class="reply-editor">
                         <h3 >填写评论</h3>
 						<form action="/myblog/ReplyRelease?uid=<%=userid%>&aid=<%=journal.getJournal_id()%>" method="post">
-						 <textarea name="replycontent" rows="5" cols="93" style="font-size:18px; padding-right:20px; padding-left:20px; padding-bottom:10px; padding-top: 10px;" placeholder='请填写您要回复的内容~(^_^)~'></textarea>
+						 <textarea name="replycontent" rows="5" style="font-size:18px; width:100%; padding-right:20px; padding-left:20px; padding-bottom:10px; padding-top: 10px;" placeholder='请填写您要回复的内容~(^_^)~'></textarea>
 						 <div class="btn-group" style="margin-top:10px;">
                         	<button  type="submit" class="btn btn-primary">对文章进行评论</button>
                     	</div>
