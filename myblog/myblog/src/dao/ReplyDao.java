@@ -7,6 +7,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.bouncycastle.jce.provider.symmetric.ARC4.Base;
+
+import Encryption.Base64;
 import empty.Reply;
 
 public class ReplyDao {
@@ -30,6 +33,7 @@ public class ReplyDao {
 	 * 0:插入失败
 	 */
 	public static int insertReply(Reply reply){
+		reply.setReplycontent(Base64.base64Encoder(reply.getReplycontent()));
 		int result = 0;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String sql = "insert wb_reply (reply_content, article_id, user_id, reply_date) values ('"
@@ -61,7 +65,7 @@ public class ReplyDao {
 			list = new ArrayList<>();
 			while(rs.next()){
 				Reply reply = new Reply();
-				reply.setReplycontent(rs.getString(2));
+				reply.setReplycontent(Base64.base64Decoder(rs.getString(2)));
 				reply.setUserid(rs.getInt(4));
 				reply.setArticleid(rs.getInt(3));
 				reply.setReplydate(rs.getTimestamp(5));
@@ -112,7 +116,7 @@ public class ReplyDao {
 			while(rs.next()){
 				Reply reply = new Reply();
 				reply.setReplyid(rs.getInt(1));
-				reply.setReplycontent(rs.getString(2));
+				reply.setReplycontent(Base64.base64Decoder(rs.getString(2)));
 				reply.setUserid(rs.getInt(4));
 				reply.setArticleid(rs.getInt(3));
 				reply.setReplydate(rs.getTimestamp(5));
@@ -139,7 +143,7 @@ public class ReplyDao {
 				while(rs.next()){
 					reply = new Reply();
 					reply.setReplyid(rs.getInt(1));
-					reply.setReplycontent(rs.getString(2));
+					reply.setReplycontent(Base64.base64Decoder(rs.getString(2)));
 					reply.setUserid(rs.getInt(4));
 					reply.setArticleid(rs.getInt(3));
 					reply.setReplydate(rs.getTimestamp(5));

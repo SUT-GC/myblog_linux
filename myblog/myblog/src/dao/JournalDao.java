@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
+import Encryption.Base64;
 import empty.Journal;
 
 public class JournalDao {
@@ -39,6 +40,9 @@ public class JournalDao {
 		}
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		int a = 0;
+		journal.setTitle(Base64.base64Encoder(journal.getTitle()));
+		journal.setSummary(Base64.base64Encoder(journal.getSummary()));
+		journal.setContent(Base64.base64Encoder(journal.getContent()));
 		String sql = "insert into " + "wb_article(article_title, article_author, "
 				+ "article_content, article_summary, article_classify,"
 				+ "article_image, article_date, article_private_is, article_private_pass)" + "values('"
@@ -46,7 +50,7 @@ public class JournalDao {
 				+ journal.getSummary() + "','" + journal.getClassify() + "','" + journal.getImgpath() + "','"
 				+ sdf.format(journal.getDatetime()) + "','" + journal.getPrivate_is() + "','"
 				+ journal.getPrivate_pass() + "')";
-
+		System.out.println("sql = "+ sql);
 		try {
 			a = stmt.executeUpdate(sql);
 			System.out.println(a);
@@ -69,10 +73,10 @@ public class JournalDao {
 			while (rs.next()) {
 				Journal journal = new Journal();
 				journal.setJournal_id(rs.getInt(1));
-				journal.setTitle(rs.getString(2));
+				journal.setTitle(Base64.base64Decoder(rs.getString(2)));
 				journal.setAuthor(rs.getString(3));
-				journal.setContent(rs.getString(4));
-				journal.setSummary(rs.getString(5));
+				journal.setContent(Base64.base64Decoder(rs.getString(4)));
+				journal.setSummary(Base64.base64Decoder(rs.getString(5)));
 				journal.setClassify(rs.getInt(6));
 				journal.setImgpath(rs.getString(7));
 				journal.setDatetime(rs.getTimestamp(8));
@@ -102,10 +106,10 @@ public class JournalDao {
 			while (rs.next()) {
 				Journal journal = new Journal();
 				journal.setJournal_id(rs.getInt(1));
-				journal.setTitle(rs.getString(2));
+				journal.setTitle(Base64.base64Decoder(rs.getString(2)));
 				journal.setAuthor(rs.getString(3));
-				journal.setContent(rs.getString(4));
-				journal.setSummary(rs.getString(5));
+				journal.setContent(Base64.base64Decoder(rs.getString(4)));
+				journal.setSummary(Base64.base64Decoder(rs.getString(5)));
 				journal.setClassify(rs.getInt(6));
 				journal.setImgpath(rs.getString(7));
 				journal.setDatetime(rs.getTimestamp(8));
@@ -135,10 +139,10 @@ public class JournalDao {
 			while (rs.next()) {
 				Journal journal = new Journal();
 				journal.setJournal_id(rs.getInt(1));
-				journal.setTitle(rs.getString(2));
+				journal.setTitle(Base64.base64Decoder(rs.getString(2)));
 				journal.setAuthor(rs.getString(3));
-				journal.setContent(rs.getString(4));
-				journal.setSummary(rs.getString(5));
+				journal.setContent(Base64.base64Decoder(rs.getString(4)));
+				journal.setSummary(Base64.base64Decoder(rs.getString(5)));
 				journal.setClassify(rs.getInt(6));
 				journal.setImgpath(rs.getString(7));
 				journal.setDatetime(rs.getTimestamp(8));
@@ -166,10 +170,10 @@ public class JournalDao {
 			while (rs.next()) {
 				journal = new Journal();
 				journal.setJournal_id(id);
-				journal.setTitle(rs.getString(2));
+				journal.setTitle(Base64.base64Decoder(rs.getString(2)));
 				journal.setAuthor(rs.getString(3));
-				journal.setContent(rs.getString(4));
-				journal.setSummary(rs.getString(5));
+				journal.setContent(Base64.base64Decoder(rs.getString(4)));
+				journal.setSummary(Base64.base64Decoder(rs.getString(5)));
 				journal.setClassify(rs.getInt(6));
 				journal.setImgpath(rs.getString(7));
 				journal.setDatetime(rs.getDate(8));
@@ -212,6 +216,10 @@ public class JournalDao {
 	 * -1:执行sql语句失败
 	 */
 	public static int updateJournal(Journal journal){
+		journal.setTitle(Base64.base64Encoder(journal.getTitle()));
+		journal.setSummary(Base64.base64Encoder(journal.getSummary()));
+		journal.setContent(Base64.base64Encoder(journal.getContent()));
+		
 		//把Date对象进行格式转换
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		int result = -1;
@@ -269,10 +277,10 @@ public class JournalDao {
 			while (rs.next()) {
 				Journal journal = new Journal();
 				journal.setJournal_id(rs.getInt(1));
-				journal.setTitle(rs.getString(2));
+				journal.setTitle(Base64.base64Decoder(rs.getString(2)));
 				journal.setAuthor(rs.getString(3));
-				journal.setContent(rs.getString(4));
-				journal.setSummary(rs.getString(5));
+				journal.setContent(Base64.base64Decoder(rs.getString(4)));
+				journal.setSummary(Base64.base64Decoder(rs.getString(5)));
 				journal.setClassify(rs.getInt(6));
 				journal.setImgpath(rs.getString(7));
 				journal.setDatetime(rs.getTimestamp(8));

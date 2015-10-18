@@ -6,6 +6,7 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+import Encryption.Base64;
 import empty.Message;
 
 /*
@@ -50,7 +51,7 @@ public class MessDao {
 				message.setFloor_id(rs.getInt(2));
 				message.setUser_id(rs.getInt(3));
 				message.setTouser_id(rs.getInt(4));
-				message.setMessbox_reply(rs.getString(5));
+				message.setMessbox_reply(Base64.base64Decoder(rs.getString(5)));
 				message.setMessbox_date(rs.getTimestamp(6));
 				list.add(message);
 			}
@@ -80,7 +81,7 @@ public class MessDao {
 				message.setFloor_id(rs.getInt(2));
 				message.setUser_id(rs.getInt(3));
 				message.setTouser_id(rs.getInt(4));
-				message.setMessbox_reply(rs.getString(5));
+				message.setMessbox_reply(Base64.base64Decoder(rs.getString(5)));
 				message.setMessbox_date(rs.getTimestamp(6));
 			}
 		} catch (SQLException e) {
@@ -132,7 +133,7 @@ public class MessDao {
 				message.setFloor_id(rs.getInt(2));
 				message.setUser_id(rs.getInt(3));
 				message.setTouser_id(rs.getInt(4));
-				message.setMessbox_reply(rs.getString(5));
+				message.setMessbox_reply(Base64.base64Decoder(rs.getString(5)));
 				message.setMessbox_date(rs.getTimestamp(6));
 				list.add(message);
 			}
@@ -185,7 +186,7 @@ public class MessDao {
 				message.setFloor_id(rs.getInt(2));
 				message.setUser_id(rs.getInt(3));
 				message.setTouser_id(rs.getInt(4));
-				message.setMessbox_reply(rs.getString(5));
+				message.setMessbox_reply(Base64.base64Decoder(rs.getString(5)));
 				message.setMessbox_date(rs.getTimestamp(6));
 				list.add(message);
 			}
@@ -216,7 +217,7 @@ public class MessDao {
 				message.setFloor_id(rs.getInt(2));
 				message.setUser_id(rs.getInt(3));
 				message.setTouser_id(rs.getInt(4));
-				message.setMessbox_reply(rs.getString(5));
+				message.setMessbox_reply(Base64.base64Decoder(rs.getString(5)));
 				message.setMessbox_date(rs.getTimestamp(6));
 				list.add(message);
 			}
@@ -247,7 +248,7 @@ public class MessDao {
 				message.setFloor_id(rs.getInt(2));
 				message.setUser_id(rs.getInt(3));
 				message.setTouser_id(rs.getInt(4));
-				message.setMessbox_reply(rs.getString(5));
+				message.setMessbox_reply(Base64.base64Decoder(rs.getString(5)));
 				message.setMessbox_date(rs.getTimestamp(6));
 				list.add(message);
 			}
@@ -269,6 +270,7 @@ public class MessDao {
 	 * 1:数据库受影响1行
 	 */
 	public static int insertMess(Message message){
+		message.setMessbox_reply(Base64.base64Encoder(message.getMessbox_reply()));
 		int result =-1;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String sql = "insert into wb_messbox (floor_id,user_id,touser_id,messbox_reply,messbox_date) values ('"
