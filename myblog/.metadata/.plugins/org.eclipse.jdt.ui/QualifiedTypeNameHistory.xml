@@ -8,5 +8,6 @@
 <fullyQualifiedTypeName name="Encryption.Md5"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="org.bouncycastle.jce.provider.symmetric.ARC4.Base"/>
 <fullyQualifiedTypeName name="Encryption.Base64"/>
 </qualifiedTypeNameHistroy>
