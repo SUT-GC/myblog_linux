@@ -384,7 +384,6 @@
 <!--分类按钮end-->
 <!-- java start -->
 	<%
-		System.out.print(request.getParameter("liketitle"));
 		ArrayList <Journal> list = new ArrayList();
 		System.out.print("~"+request.getParameter("cfy")+"~");
 		if(request.getParameter("cfy")==null){

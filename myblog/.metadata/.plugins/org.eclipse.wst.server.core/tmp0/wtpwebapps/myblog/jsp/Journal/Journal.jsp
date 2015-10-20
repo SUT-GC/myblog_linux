@@ -1,3 +1,4 @@
+<%@page import="Encryption.Base64"%>
 <%@page import="com.oracle.xmlns.internal.webservices.jaxws_databinding.SoapBindingParameterStyle"%>
 <%@page import="dao.JournalDao"%>
 <%@page import="java.util.ArrayList"%>
@@ -383,19 +384,20 @@
 <!--分类按钮end-->
 <!-- java start -->
 	<%
+		System.out.print(request.getParameter("liketitle"));
 		ArrayList <Journal> list = new ArrayList();
 		System.out.print("~"+request.getParameter("cfy")+"~");
 		if(request.getParameter("cfy")==null){
 			if(request.getParameter("liketitle")== null){
 				list = JournalDao.journalSelect();	
 			}else{
-				list = JournalDao.selectJournalLikeTitle(request.getParameter("liketitle"));
+				list = JournalDao.selectJournalLikeTitle(Base64.base64Encoder(request.getParameter("liketitle")));
 			}
 		}else{
 			if(request.getParameter("liketitle")== null){
 				list = JournalDao.selectJournalByClassify(Integer.parseInt(request.getParameter("cfy")));	
 			}else{
-				list = JournalDao.selectJournalLikeTitle(request.getParameter("liketitle"));
+				list = JournalDao.selectJournalLikeTitle(Base64.base64Encoder(request.getParameter("liketitle")));
 			}
 		}
 	%>
