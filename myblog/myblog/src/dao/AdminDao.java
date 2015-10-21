@@ -9,12 +9,14 @@ import Encryption.Base64;
 import empty.Admin;
 
 public class AdminDao {
-    private static DB_Data db_data;
     private static Statement stmt;
     
     static{
-    	db_data = new DB_Data("wb");
-    	stmt = db_data.getStmt();
+	  try {
+		stmt = DB_Data.getConn().createStatement();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
     }
     
     /*

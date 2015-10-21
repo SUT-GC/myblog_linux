@@ -54,6 +54,7 @@ public class LoginDo extends HttpServlet {
 		 * 1: 通过验证
 		 * 2: 账号不存在
 		 * 3: 密码错误
+		 * 4: 账户格式不正确
 		 */
 		int Lm = 0;
 		
@@ -69,24 +70,29 @@ public class LoginDo extends HttpServlet {
 		}
 		System.out.println("username = "+username+" "+"password="+password);
 		if(!username.equals("") && !password.equals("")){
-			if(UserDao.selectUserByEmail(username) == null){
-				Lm = 2;
-			}else{
-				user = UserDao.selectUserByEmail(username);
-				//测试
-				System.out.println("out.user.pass = "+user.getUser_pass());
-				System.out.println("~password = "+password +"~ get.userpass = "+Md5.md5Encode(password));
-				
-				if(user.getUser_pass().equals(Md5.md5Encode(password))){
-					Lm = 1;
+			if(username.matches("^[a-z0-9A-Z]+([._\\-]*[a-z0-9A-Z])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.)(com|cn|org|net|gov)")){
+				if(UserDao.selectUserByEmail(username) == null){
+					Lm = 2;
 				}else{
-					Lm = 3;
+					user = UserDao.selectUserByEmail(username);
+					//测试
+					System.out.println("out.user.pass = "+user.getUser_pass());
+					System.out.println("~password = "+password +"~ get.userpass = "+Md5.md5Encode(password));
+					
+					if(user.getUser_pass().equals(Md5.md5Encode(password))){
+						Lm = 1;
+					}else{
+						Lm = 3;
+					}
 				}
+			}else{
+				Lm = 4;
 			}
 		}else{
 			Lm = 0;
 		}
 		
+		System.out.println("Lm = "+Lm);
 		/*
 		 * 对Lm的消息验证结果进行判断与转发
 		 */

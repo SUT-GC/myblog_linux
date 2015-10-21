@@ -1,15 +1,11 @@
 package dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 
 import Encryption.Base64;
 import empty.Journal;
@@ -20,9 +16,13 @@ public class JournalDao {
 	/*
 	 * 静态初始化框
 	 */
-	static {
-		stmt = new DB_Data("wb").getStmt();
-	}
+    static{
+	  try {
+		stmt = DB_Data.getConn().createStatement();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    }
 
 	/*
 	 * 1
@@ -66,7 +66,7 @@ public class JournalDao {
 	 * select *from wb_article 查询函数
 	 * 返回ArrayList<Journal> list 返回查询的结果
 	 */
-	public static ArrayList journalSelect() {
+	public static ArrayList<Journal> journalSelect() {
 		ArrayList<Journal> list = new ArrayList<>();
 		try {
 			ResultSet rs = stmt.executeQuery("select * from wb_article order by article_id desc");
@@ -269,7 +269,7 @@ public class JournalDao {
 	 * select *from wb_article 查询函数
 	 * 返回ArrayList<Journal> list 返回查询的结果
 	 */
-	public static ArrayList SelectTopJournal5() {
+	public static ArrayList<Journal> SelectTopJournal5() {
 		ArrayList<Journal> list = new ArrayList<>();
 		String sql = "select * from wb_article order by article_id desc limit 0,5;";
 		try {

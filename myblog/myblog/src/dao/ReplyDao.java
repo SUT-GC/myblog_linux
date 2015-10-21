@@ -5,22 +5,21 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
-import org.bouncycastle.jce.provider.symmetric.ARC4.Base;
 
 import Encryption.Base64;
 import empty.Reply;
 
 public class ReplyDao {
 	private static Statement stmt;
-
-	/*
-	 * 静态初始化框
-	 */
-	static {
-		stmt = new DB_Data("wb").getStmt();
-	}
+    
+    static{
+	  try {
+		stmt = DB_Data.getConn().createStatement();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    }
 	
 	/*
 	 * 1

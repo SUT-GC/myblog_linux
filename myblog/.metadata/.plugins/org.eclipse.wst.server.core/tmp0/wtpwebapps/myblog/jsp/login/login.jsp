@@ -93,6 +93,9 @@
 				if(ls == 3){
 					lmsg += "对不起, 密码错误 ! ";
 				}
+				if(ls == 4){
+					lmsg += "对不起, 账号格式不正确 ! ";
+				}
 				if(lmsg != ""){
 					$("#ts").html(lmsg);
 					is_show();

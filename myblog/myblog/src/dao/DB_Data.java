@@ -2,34 +2,31 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 public class DB_Data {
-	private String driver;
-	private String url;
-	private String user;
-	private String password;
-	private Connection conn;
-	private Statement stmt;
+	private static String driver;
+	private static String url;
+	private static String user;
+	private static String password;
+	private static Connection conn;
 
-	public DB_Data(String datebase) {
+	static {
 		driver = "com.mysql.jdbc.Driver";
-		url = "jdbc:mysql://localhost:3306/"+datebase+"?useUnicode=true&characterEncoding=utf-8";
+		url = "jdbc:mysql://localhost:3306/wb?useUnicode=true&characterEncoding=utf-8";
 		user = "root";
 		password = "gc";
 		try {
-			Class.forName(driver);
-			conn = DriverManager.getConnection(url, user, password);
-			stmt = conn.createStatement();
+			if(conn == null){
+				Class.forName(driver);
+				conn = DriverManager.getConnection(url, user, password);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public Statement getStmt() {
-		return stmt;
+	public static Connection getConn(){
+		return conn;
 	}
-	
 
 }

@@ -15,16 +15,15 @@ public class UserDao {
 	 * db_date:用来装数据库连接对象 
 	 * stmt:用数据库连接对象制造出stmt
 	 */
-	private static DB_Data db_date;
 	private static Statement stmt;
-
-	/*
-	 * 静态初始化框初始化db_date,stmt两个对象
-	 */
-	static {
-		db_date = new DB_Data("wb");
-		stmt = db_date.getStmt();
-	}
+    
+    static{
+	  try {
+		stmt = DB_Data.getConn().createStatement();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    }
 
 	/*
 	 * 1

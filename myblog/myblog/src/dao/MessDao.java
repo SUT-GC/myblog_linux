@@ -24,12 +24,15 @@ import empty.Message;
  * 11:功能: 统计出所有二级留言总数
  */
 public class MessDao {
-	private static DB_Data db_data;
 	private static Statement stmt;
-	static{
-		db_data = new DB_Data("wb");
-		stmt = db_data.getStmt();
-	}
+    
+    static{
+	  try {
+		stmt = DB_Data.getConn().createStatement();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    }
 	
 	/*
 	 * 1
