@@ -9,7 +9,6 @@
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="org.bouncycastle.jce.provider.symmetric.ARC4.Base"/>
 <fullyQualifiedTypeName name="Encryption.Base64"/>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="java.sql.Statement"/>
 <fullyQualifiedTypeName name="com.mysql.jdbc.PreparedStatement"/>
@@ -18,5 +17,6 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="dao.JournalDao"/>
 <fullyQualifiedTypeName name="empty.Journal"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="dao.DB_Data"/>
 </qualifiedTypeNameHistroy>
