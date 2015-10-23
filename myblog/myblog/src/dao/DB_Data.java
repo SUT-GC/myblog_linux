@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class DB_Data {
 	private static String driver;
@@ -15,18 +16,26 @@ public class DB_Data {
 		url = "jdbc:mysql://localhost:3306/wb?useUnicode=true&characterEncoding=utf-8";
 		user = "root";
 		password = "gc";
-		try {
-			if(conn == null){
+	}
+	
+	public static Connection createConnection(){
+		try{
 				Class.forName(driver);
 				conn = DriverManager.getConnection(url, user, password);
-			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return conn;
 	}
 
-	public static Connection getConn(){
-		return conn;
+	public static void colseConnection(){
+		if(conn != null){
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 }

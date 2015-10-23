@@ -1,26 +1,18 @@
 package dao;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-
 import Encryption.Base64;
 import empty.Reply;
 
 public class ReplyDao {
 	private static Statement stmt;
-    
-    static{
-	  try {
-		stmt = DB_Data.getConn().createStatement();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-    }
-	
+
 	/*
 	 * 1
 	 * 功能: 向wb_reply中插入Reply
@@ -41,7 +33,11 @@ public class ReplyDao {
 							+reply.getUserid()+"','"
 							+sdf.format(reply.getReplydate())+"');";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			result = stmt.executeUpdate(sql);
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -60,6 +56,8 @@ public class ReplyDao {
 		ArrayList<Reply> list = null;
 		String sql = "select * from wb_reply where article_id = '"+articleid+"';";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			list = new ArrayList<>();
 			while(rs.next()){
@@ -70,6 +68,8 @@ public class ReplyDao {
 				reply.setReplydate(rs.getTimestamp(5));
 				list.add(reply);
 			}
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -88,10 +88,14 @@ public class ReplyDao {
 		int result = 0;
 		String sql = "select count(*) from wb_reply where article_id = '"+articleid+"'; ";
 		 try {
+			 Connection conn = DB_Data.createConnection();
+	    	stmt = conn.createStatement();
 			ResultSet rs  = stmt.executeQuery(sql);
 			while(rs.next()){
 				result = rs.getInt(1);
 			}
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -110,6 +114,8 @@ public class ReplyDao {
 		ArrayList<Reply> list = null;
 		String sql = "select * from wb_reply;";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			list = new ArrayList<>();
 			while(rs.next()){
@@ -121,6 +127,8 @@ public class ReplyDao {
 				reply.setReplydate(rs.getTimestamp(5));
 				list.add(reply);
 			}
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -138,6 +146,8 @@ public class ReplyDao {
 		Reply reply = null;
 			String sql = "select * from wb_reply where reply_id = '"+replyid+"';";
 			try {
+				Connection conn = DB_Data.createConnection();
+	    		stmt = conn.createStatement();
 				ResultSet rs = stmt.executeQuery(sql);
 				while(rs.next()){
 					reply = new Reply();
@@ -147,6 +157,8 @@ public class ReplyDao {
 					reply.setArticleid(rs.getInt(3));
 					reply.setReplydate(rs.getTimestamp(5));
 				}
+				stmt.close();
+				conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -166,7 +178,11 @@ public class ReplyDao {
 		int result = 0;
 		String sql = "delete from wb_reply where reply_id = '"+replyid+"';";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			result = stmt.executeUpdate(sql);
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -184,10 +200,14 @@ public class ReplyDao {
 		int sum = 0;
 		String sql = "select count(*) from wb_reply;";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()){
 				sum = rs.getInt(1);
 			}
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

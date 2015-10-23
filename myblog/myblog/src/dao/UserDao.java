@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -17,13 +18,6 @@ public class UserDao {
 	 */
 	private static Statement stmt;
     
-    static{
-	  try {
-		stmt = DB_Data.getConn().createStatement();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-    }
 
 	/*
 	 * 1
@@ -44,7 +38,11 @@ public class UserDao {
 				+ user.getUser_email() + "', '" + Md5.md5Encode(user.getUser_pass()) + "', '" + user.getUser_nick() + "', '"
 				+ user.getUser_imagepath() + "','" + user.getUser_isadmin() + "');";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			result = stmt.executeUpdate(sql);
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			result = -1;
@@ -64,6 +62,8 @@ public class UserDao {
 		ArrayList<User> list = new ArrayList<>();
 		String sql = "select * from wb_user";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				User user = new User();
@@ -75,6 +75,8 @@ public class UserDao {
 				user.setUser_isadmin(rs.getInt(6));
 				list.add(user);
 			}
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -95,6 +97,8 @@ public class UserDao {
 		User user = null;
 		String sql = "select * from wb_user where user_id = '" + user_id + "';";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				user = new User();
@@ -105,6 +109,8 @@ public class UserDao {
 				user.setUser_imagepath(rs.getString(5));
 				user.setUser_isadmin(rs.getInt(6));
 			}
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -124,6 +130,8 @@ public class UserDao {
 		User  user = null;
 		String sql = "select * from wb_user where user_email = '"+email+"';";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()){
 				user = new User();
@@ -134,6 +142,8 @@ public class UserDao {
 				user.setUser_imagepath(rs.getString(5));
 				user.setUser_isadmin(rs.getInt(6));
 			}
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -155,7 +165,11 @@ public class UserDao {
 		int result = -1;
 		String sql = "delete from wb_user where user_id = '"+user_id+"';";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			result = stmt.executeUpdate(sql);
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -183,7 +197,11 @@ public class UserDao {
 						+ "user_isadmin='" +user.getUser_isadmin()+"'"
 						+ "where user_id = '"+user.getUser_id()+"';";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			result = stmt.executeUpdate(sql);
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -204,7 +222,11 @@ public class UserDao {
 		int result = 0;
 		String sql = "update wb_user set user_imagepath = '"+filename+"' where user_id = '"+userid+"';";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			result = stmt.executeUpdate(sql);
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -223,10 +245,14 @@ public class UserDao {
 		String result = "";
 		String sql = "select user_imagepath from wb_user where user_id = '"+userid+"';";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()){
 				result = rs.getString("user_imagepath");
 			}
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -245,10 +271,14 @@ public class UserDao {
 		int sum = 0;
 		String sql = "select count(*) from wb_user;";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()){
 				sum = rs.getInt(1);
 			}
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

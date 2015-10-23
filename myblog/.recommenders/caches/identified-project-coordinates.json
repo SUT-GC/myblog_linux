@@ -1,1 +1,1 @@
-[[{"location":"/home/gc/tomcat/lib/servlet-api.jar","type":"JAR","hints":{}},"ABSENT"]]
+[[{"location":"/usr/lib/jvm/jdk1.8.0_25","type":"JRE","hints":{}},"jre:jre:1.8.0"],[{"location":"/home/gc/tomcat/lib/servlet-api.jar","type":"JAR","hints":{}},"ABSENT"],[{"location":"/home/gc/web/myblog_linux/myblog/myblog","type":"PROJECT","hints":{"PROJECT_NAME":"myblog"}},"ABSENT"]]

@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -25,15 +26,6 @@ import empty.Message;
  */
 public class MessDao {
 	private static Statement stmt;
-    
-    static{
-	  try {
-		stmt = DB_Data.getConn().createStatement();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-    }
-	
 	/*
 	 * 1
 	 * 功能: 查出所有的留言记录
@@ -46,6 +38,8 @@ public class MessDao {
 		ArrayList<Message> list = null;
 		String sql = "select * from wb_messbox;";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			list = new ArrayList<>();
 			while(rs.next()){
@@ -58,6 +52,8 @@ public class MessDao {
 				message.setMessbox_date(rs.getTimestamp(6));
 				list.add(message);
 			}
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -77,6 +73,8 @@ public class MessDao {
 		Message message  = null;
 		String sql = "select * from wb_messbox where messbox_id = '"+messbox_id+"';";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()){
 				message = new Message();
@@ -87,6 +85,8 @@ public class MessDao {
 				message.setMessbox_reply(Base64.base64Decoder(rs.getString(5)));
 				message.setMessbox_date(rs.getTimestamp(6));
 			}
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -108,7 +108,11 @@ public class MessDao {
 		int result = -1;
 		String sql ="delete from wb_messbox where messbox_id = '"+messbox_id+"';";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			result = stmt.executeUpdate(sql);
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -128,6 +132,8 @@ public class MessDao {
 		ArrayList<Message> list = null;
 		String sql = "select * from wb_messbox where touser_id = '0' order by floor_id desc;";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			list = new ArrayList<>();
 			while(rs.next()){
@@ -140,6 +146,8 @@ public class MessDao {
 				message.setMessbox_date(rs.getTimestamp(6));
 				list.add(message);
 			}
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -158,10 +166,14 @@ public class MessDao {
 		int sum = 0;
 		String sql = "select count(*) from wb_messbox where touser_id = '0';";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()){
 				sum = rs.getInt(1);
 			}
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -181,6 +193,8 @@ public class MessDao {
 		ArrayList<Message> list = null;
 		String sql ="select * from wb_messbox where touser_id = '0' order by floor_id desc limit "+start+" , "+end;
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			list = new ArrayList<>();
 			while(rs.next()){
@@ -193,6 +207,8 @@ public class MessDao {
 				message.setMessbox_date(rs.getTimestamp(6));
 				list.add(message);
 			}
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -212,6 +228,8 @@ public class MessDao {
 		ArrayList<Message> list = null;
 		String sql = "select *from wb_messbox where floor_id = '"+floor_id+"' and touser_id = '0';";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			list = new ArrayList<>();
 			while(rs.next()){
@@ -224,6 +242,8 @@ public class MessDao {
 				message.setMessbox_date(rs.getTimestamp(6));
 				list.add(message);
 			}
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -243,6 +263,8 @@ public class MessDao {
 		ArrayList<Message> list = null;
 		String sql = "select * from wb_messbox where floor_id = '"+floor_id+"' and touser_id <> '0' order by messbox_date;";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			list = new ArrayList<>();
 			while(rs.next()){
@@ -255,6 +277,8 @@ public class MessDao {
 				message.setMessbox_date(rs.getTimestamp(6));
 				list.add(message);
 			}
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -283,7 +307,11 @@ public class MessDao {
 						+message.getMessbox_reply()+"','"
 						+sdf.format(message.getMessbox_date())+"');";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			result = stmt.executeUpdate(sql);
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -302,10 +330,14 @@ public class MessDao {
 		int result = 0;
 		String sql = "select max(floor_id) from wb_messbox;";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()){
 				result = rs.getInt(1);
 			}
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -324,10 +356,14 @@ public class MessDao {
 		int sum = 0;
 		String sql = "select count(*) from wb_messbox where touser_id <> '0';";
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()){
 				sum = rs.getInt(1);
 			}
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

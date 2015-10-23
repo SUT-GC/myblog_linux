@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -10,14 +11,6 @@ import empty.Admin;
 
 public class AdminDao {
     private static Statement stmt;
-    
-    static{
-	  try {
-		stmt = DB_Data.getConn().createStatement();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-    }
     
     /*
      * 1
@@ -32,6 +25,8 @@ public class AdminDao {
     	ArrayList <Admin> list = null;
     	String sql = "select * from wb_admin;";
     	try {
+    		Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			list = new ArrayList<>();
 			while(rs.next()){
@@ -41,7 +36,10 @@ public class AdminDao {
 				admin.setAdmin_password(rs.getString(3));
 				list.add(admin);
 			}
-		} catch (SQLException e) {
+			stmt.close();
+			conn.close();
+			
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
     	return list;
@@ -61,6 +59,8 @@ public class AdminDao {
     	String sql = "select * from wb_admin where admin_id = '"+admin_id+"';";
     	ResultSet rs;
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 	    	while(rs.next()){
 	    		admin = new Admin();
@@ -68,6 +68,8 @@ public class AdminDao {
 	    		admin.setAdmin_username(rs.getString(2));
 	    		admin.setAdmin_password(rs.getString(3));
 	    	}
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -88,6 +90,8 @@ public class AdminDao {
     	String sql = "select * from wb_admin where admin_username = '"+username+"';";
     	ResultSet rs;
 		try {
+			Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 	    	while(rs.next()){
 	    		admin = new Admin();
@@ -95,6 +99,8 @@ public class AdminDao {
 	    		admin.setAdmin_username(rs.getString(2));
 	    		admin.setAdmin_password(rs.getString(3));
 	    	}
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -115,7 +121,11 @@ public class AdminDao {
     	int result = 0;
     	String sql = "insert wb_admin (admin_username, admin_password) values('"+admin.getAdmin_username()+"', '"+admin.getAdmin_password()+"');";
     	try {
+    		Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			result = stmt.executeUpdate(sql);
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -137,7 +147,11 @@ public class AdminDao {
     			        + "admin_password = '"+Base64.base64Encoder(admin.getAdmin_password())+"'"
     			        + "where admin_id = '"+admin.getAdmin_id()+"';";
     	try {
+    		Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			result = stmt.executeUpdate(sql);
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -156,7 +170,11 @@ public class AdminDao {
     	int result = -1;
     	String sql = "delete from wb_admin where admin_id = '"+admin_id+"';";
     	try {
+    		Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			result = stmt.executeUpdate(sql);
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -175,10 +193,14 @@ public class AdminDao {
     	int result = 0;
     	String sql = "SELECT count( * ) FROM wb_admin;";
     	try {
+    		Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()){
 				result = rs.getInt(1);
 			}
+			stmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
