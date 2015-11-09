@@ -186,8 +186,8 @@
                                 <option value="4">生活随笔</option>
                                 <option value="5">读书笔记</option>
                                 <option value="6">其他</option>
-                                <option value="7" disabled>预留</option>
-                                <option value="8" disabled>预留</option>
+                                <option value="7" >C++</option>
+                                <option value="8" >Linux</option>
                             </select>   
                             <span class="is_private">is private ?</span>
                             <%

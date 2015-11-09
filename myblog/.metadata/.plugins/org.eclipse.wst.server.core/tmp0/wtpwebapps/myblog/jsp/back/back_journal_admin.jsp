@@ -170,6 +170,8 @@
 		                                    	case 4:out.print("生活随笔");break;
 		                                    	case 5:out.print("读书笔记");break;
 		                                    	case 6:out.print("其他");break;
+		                                    	case 7:out.print("C++");break;
+		                                    	case 8:out.print("Linux");break;
 		                                    	}
 		                                    %>
 		                                    <td class="center">

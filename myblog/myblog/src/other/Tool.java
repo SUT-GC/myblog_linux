@@ -18,6 +18,8 @@ public class Tool {
 		case 4: result = "生活随笔"; break;
 		case 5: result = "读书笔记"; break;
 		case 6: result = "其他"; break;
+		case 7: result = "c++"; break;
+		case 8: result = "linux"; break;
 		}
 		return result;
 	}

@@ -366,8 +366,8 @@
 		<a href="?cfy=4"><button id="lifebtn" class="btn btn-warning cif" id="life" type="button">生活随笔</button></a>
 		<a href="?cfy=5"><button id="reselbtn" class="btn btn-danger cif" id="other" type="button">读书笔记</button></a>
 		<a href="?cfy=6"><button class="btn btn-primary cif" id="rese1" type="button">其他</button></a>
-		<a href="?cfy=7"><button class="btn btn-success cif" type="rese2" disabled>预留</button></a>
-		<a href="?cfy=8"><button class="btn btn-info cif" type="rese3" disabled>预留</button></a>
+		<a href="?cfy=7"><button class="btn btn-success cif" type="rese2" >C++</button></a>
+		<a href="?cfy=8"><button class="btn btn-info cif" type="rese3" >Linux</button></a>
 		<form action="Journal.jsp" method="post" class="form">
 		   	<input name="liketitle" type="text" class="form-control" placeholder="输入可能存在的标题">
 			<button type="submit" class="btn btn-default form-submit" > Select! </button>

@@ -53,6 +53,8 @@
 		case 4: classifyS = "生活随笔"; break;
 		case 5: classifyS = "读书笔记"; break;
 		case 6: classifyS = "其他"; break;
+		case 7: classifyS = "C++"; break;
+		case 8: classifyS = "Linux"; break;
 		}
 	}
 	
