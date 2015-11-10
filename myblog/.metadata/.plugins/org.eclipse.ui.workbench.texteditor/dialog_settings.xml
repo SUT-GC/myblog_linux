@@ -2,12 +2,15 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="&lt;li&gt;&lt;a href=&quot;&lt;%=urlp%&gt;prompt/prompt.jsp&quot; class=&quot;three-d&quot;&gt;" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="&lt;li&gt;&lt;a href=&quot;&lt;%=urlp%&gt;prompt/prompt.jsp&quot; class=&quot;three-d&quot;&gt;"/>
+			<item value="prompt/prompt.jsp"/>
+			<item value="head"/>
 			<item value="Tool"/>
 			<item value="img8.gif"/>
 			<item value="8."/>
@@ -15,6 +18,7 @@
 			<item value="/myblog/updateheadimg"/>
 		</list>
 		<list key="replacehistory">
+			<item value="&lt;li&gt;&lt;a href=&quot;&lt;%=urlp%&gt;update/update.jsp&quot; class=&quot;three-d&quot;&gt;&#x0A;        TA"/>
 			<item value="img8.jpg"/>
 			<item value=""/>
 			<item value="/myblog/jsp/upload/uploadheadimg"/>
