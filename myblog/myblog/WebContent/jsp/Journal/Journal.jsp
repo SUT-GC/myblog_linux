@@ -302,7 +302,7 @@
         日志
         <span class="three-d-box"><span class="front">日志</span><span class="back">日志</span></span>
       </a></li>
-      <li><a href="../prompt/prompt.jsp" class="three-d">
+      <li><a href="../update/update.jsp" class="three-d">
         TA
         <span class="three-d-box"><span class="front">TA</span><span class="back">TA</span></span>
       </a></li>

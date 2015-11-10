@@ -23,9 +23,10 @@ body {
 	<ul>
 		<li><a id="page1" href="../nav/index.jsp">博客主页</a></li>
 		<li><a id="page2" href="../Journal/Journal.jsp">博客日志</a></li>
-		<li><a id="page3" href="../information/information.jsp">博主信息</a></li>
-		<li><a id="page4" href="../editor/messagebox.jsp">留言板</a></li>
-		<li><a id="page5" href="../login/login.jsp">登陆/注册</a></li>
+		<li><a id="page3" href="../update/update.jsp">TA</a></li>
+		<li><a id="page4" href="../information/information.jsp">博主信息</a></li>
+		<li><a id="page5" href="../editor/messagebox.jsp">留言板</a></li>
+		<li><a id="page6" href="../login/login.jsp">登陆/注册</a></li>
 	</ul>
 </div>
 <div id="content">
