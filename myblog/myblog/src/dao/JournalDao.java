@@ -35,11 +35,11 @@ public class JournalDao {
 		journal.setContent(Base64.base64Encoder(journal.getContent()));
 		String sql = "insert into " + "wb_article(article_title, article_author, "
 				+ "article_content, article_summary, article_classify,"
-				+ "article_image, article_date, article_private_is, article_private_pass)" + "values('"
+				+ "article_image, article_date, article_private_is, article_private_pass,article_visit)" + "values('"
 				+ journal.getTitle() + "','" + journal.getAuthor() + "','" + journal.getContent() + "','"
 				+ journal.getSummary() + "','" + journal.getClassify() + "','" + journal.getImgpath() + "','"
 				+ sdf.format(journal.getDatetime()) + "','" + journal.getPrivate_is() + "','"
-				+ journal.getPrivate_pass() + "')";
+				+ journal.getPrivate_pass() + ",'0')";
 		System.out.println("sql = "+ sql);
 		try {
 			Connection conn = DB_Data.createConnection();
@@ -78,6 +78,7 @@ public class JournalDao {
 				journal.setDatetime(rs.getTimestamp(8));
 				journal.setPrivate_is(rs.getInt(9));
 				journal.setPrivate_pass(rs.getInt(10));
+				journal.setArticle_visit(rs.getInt(11));
 				list.add(journal);
 			}
 			stmt.close();
@@ -115,6 +116,7 @@ public class JournalDao {
 				journal.setDatetime(rs.getTimestamp(8));
 				journal.setPrivate_is(rs.getInt(9));
 				journal.setPrivate_pass(rs.getInt(10));
+				journal.setArticle_visit(rs.getInt(11));
 				list.add(journal);
 			}
 			stmt.close();
@@ -152,6 +154,7 @@ public class JournalDao {
 				journal.setDatetime(rs.getTimestamp(8));
 				journal.setPrivate_is(rs.getInt(9));
 				journal.setPrivate_pass(rs.getInt(10));
+				journal.setArticle_visit(rs.getInt(11));
 				list.add(journal);
 			}
 			stmt.close();
@@ -187,6 +190,7 @@ public class JournalDao {
 				journal.setDatetime(rs.getDate(8));
 				journal.setPrivate_is(rs.getInt(9));
 				journal.setPrivate_pass(rs.getInt(10));
+				journal.setArticle_visit(rs.getInt(11));
 			}
 			stmt.close();
 			DB_Data.colseConnection();
@@ -292,7 +296,7 @@ public class JournalDao {
 	 */
 	public static ArrayList<Journal> SelectTopJournal5() {
 		ArrayList<Journal> list = new ArrayList<>();
-		String sql = "select * from wb_article order by article_id desc limit 0,5;";
+		String sql = "select * from wb_article order by article_visit desc limit 0,5;";
 		try {
 			Connection conn = DB_Data.createConnection();
     		stmt = conn.createStatement();
@@ -309,6 +313,7 @@ public class JournalDao {
 				journal.setDatetime(rs.getTimestamp(8));
 				journal.setPrivate_is(rs.getInt(9));
 				journal.setPrivate_pass(rs.getInt(10));
+				journal.setArticle_visit(rs.getInt(11));
 				list.add(journal);
 			}
 			stmt.close();
@@ -345,4 +350,56 @@ public class JournalDao {
     	return result;
     }
 	
+    /*
+     * 11
+     * 功能: 根据article_id来更新article_visit
+     * sql:update wb_article set article_visit = '1' where article_id = '0';
+     * 方法名: updateArticleVisit
+     * 参数: int id ,int num
+     * 返回值:int result
+     */
+    public static int updateArticleVisit(int id,int num){
+    	int result = -1;
+    	String sql = "update wb_article set article_visit = '"+num+"' where article_id = '"+id+"';";
+    	try {
+    		Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
+    		
+    		result = stmt.executeUpdate(sql);
+			
+    		stmt.close();
+			DB_Data.colseConnection();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	return result;
+    }
+    
+    /*
+     * 12
+     * 功能: 计算出总的日志浏览量
+     * sql:select sum(article_visit) from wb_article; 
+     * 方法名: sumAllArticleVisit
+     * 参数: 无
+     * 返回值：int result
+     */
+    public static int sumAllArticleVisit(){
+    	int result = -1;
+    	String sql = "select sum(article_visit) from wb_article; ";
+    	try {
+    		Connection conn = DB_Data.createConnection();
+    		stmt = conn.createStatement();
+
+    		ResultSet rs = stmt.executeQuery(sql);
+    		while(rs.next()){
+    			result = rs.getInt(1);
+    		}
+			
+    		stmt.close();
+			DB_Data.colseConnection();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	return result;
+    }
 }

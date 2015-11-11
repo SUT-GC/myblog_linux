@@ -13,6 +13,15 @@ public class Journal {
 	private Date datetime;
 	private int private_is;
 	private int private_pass;
+	private int article_visit;
+
+	public int getArticle_visit() {
+		return article_visit;
+	}
+
+	public void setArticle_visit(int article_visit) {
+		this.article_visit = article_visit;
+	}
 
 	public int getJournal_id() {
 		return journal_id;

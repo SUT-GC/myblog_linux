@@ -143,6 +143,8 @@
 								double maxClick = 1000;
 								//最大IP访问数100
 								double maxIp = 100;
+								//最大日志总浏览量10000
+								double maxArticleVisit = 10000;
 							%>
 						</h4>
 					</div>
@@ -242,9 +244,9 @@
 						</div>
 						<div class="bootstrap-admin-panel-content bootstrap-admin-no-table-panel-content collapse in">
 							<div class="col-md-3">
-								<div class="easyPieChart" data-percent="50"
+								<div class="easyPieChart" data-percent="<%=((1.0*JournalDao.sumAllArticleVisit()/maxArticleVisit)*100) %>"
 									style="width: 110px; height: 110px; line-height: 110px;">
-									50%
+									<%=JournalDao.sumAllArticleVisit() %>
 									<canvas width="110" height="110"></canvas>
 								</div>
 								<div class="chart-bottom-heading">

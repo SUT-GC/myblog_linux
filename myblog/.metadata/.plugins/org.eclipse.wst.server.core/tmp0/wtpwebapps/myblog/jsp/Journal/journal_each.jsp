@@ -75,6 +75,7 @@
     <div class="journal_each_all">
     	<%
     		if(id != -1 && journal != null && !classifyS.equals("")){
+    			JournalDao.updateArticleVisit(journal.getJournal_id(), journal.getArticle_visit()+1);
     	%>
         <div class="journal_nav">
             <a href="Journal.jsp">日志页</a>
@@ -82,6 +83,7 @@
             <a href="Journal.jsp?cfy=<%=journal.getClassify()%>"><%=classifyS%></a>
             <span class="journal_nav_2">>></span>
             <a href="#"><%=journal.getTitle()%></a>
+            <a style="float: right; margin-right: 10%;" >浏览次数:<%=journal.getArticle_visit()%></a>
         </div>
         <div class="journal_each_article">
             <div class="title"><%=journal.getTitle()%>
