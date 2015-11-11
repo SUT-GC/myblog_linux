@@ -6,7 +6,6 @@
 <fullyQualifiedTypeName name="dao.UserDao"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="Encryption.Md5"/>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="org.bouncycastle.jce.provider.symmetric.ARC4.Base"/>
 <fullyQualifiedTypeName name="Encryption.Base64"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
@@ -15,8 +14,9 @@
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="dao.JournalDao"/>
 <fullyQualifiedTypeName name="empty.Journal"/>
 <fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="dao.DB_Data"/>
+<fullyQualifiedTypeName name="dao.JournalDao"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 </qualifiedTypeNameHistroy>
