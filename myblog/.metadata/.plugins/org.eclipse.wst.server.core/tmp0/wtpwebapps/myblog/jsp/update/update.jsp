@@ -51,6 +51,8 @@ body {
 			<h2 class="title">时光轴......</h2>
 			<h3 class="posted">Time axis ......</h3>
 			<div class="story">
+				<p><h4><em><strong>  GC博客日志页面文章字大小改成内容:15px,标题:30px,作者:20px(YP的建议)。
+				<a style="float:right">2015-11-17 23:35</a></strong></em></h4> </p>
 				<p><h4><em><strong>  GC博客首页文章推荐改为推荐浏览次数Top5的文章。
 				<a style="float:right">2015-11-12 19:00</a></strong></em></h4> </p>
 				<p><h4><em><strong>  GC博客添加记录日志浏览次数功能。
