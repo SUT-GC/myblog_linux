@@ -199,3 +199,6 @@
 0:0:0:0:0:0:0:1 - - [17/Nov/2015:23:34:53 +0800] "GET /myblog/jsp/Journal/js/wangEditor-1.1.0-min.js HTTP/1.1" 304 -
 0:0:0:0:0:0:0:1 - - [17/Nov/2015:23:36:10 +0800] "GET /myblog/jsp/Journal/Journal.jsp HTTP/1.1" 200 16297
 0:0:0:0:0:0:0:1 - - [17/Nov/2015:23:36:12 +0800] "GET /myblog/jsp/update/update.jsp HTTP/1.1" 200 5286
+0:0:0:0:0:0:0:1 - - [17/Nov/2015:23:38:11 +0800] "GET /myblog/jsp/Journal/Journal.jsp HTTP/1.1" 200 16297
+0:0:0:0:0:0:0:1 - - [17/Nov/2015:23:38:12 +0800] "GET /myblog/jsp/Journal/journal_each.jsp?id=21 HTTP/1.1" 200 21084
+0:0:0:0:0:0:0:1 - - [17/Nov/2015:23:38:12 +0800] "GET /myblog/jsp/Journal/css/journal_each.css HTTP/1.1" 304 -
