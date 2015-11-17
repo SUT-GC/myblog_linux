@@ -35,11 +35,11 @@ public class JournalDao {
 		journal.setContent(Base64.base64Encoder(journal.getContent()));
 		String sql = "insert into " + "wb_article(article_title, article_author, "
 				+ "article_content, article_summary, article_classify,"
-				+ "article_image, article_date, article_private_is, article_private_pass, article_visit)" + "values('"
+				+ "article_image, article_date, article_private_is, article_private_pass,article_visit)" + "values('"
 				+ journal.getTitle() + "','" + journal.getAuthor() + "','" + journal.getContent() + "','"
 				+ journal.getSummary() + "','" + journal.getClassify() + "','" + journal.getImgpath() + "','"
 				+ sdf.format(journal.getDatetime()) + "','" + journal.getPrivate_is() + "','"
-				+ journal.getPrivate_pass() + "','0')";
+				+ journal.getPrivate_pass() + ",'0')";
 		System.out.println("sql = "+ sql);
 		try {
 			Connection conn = DB_Data.createConnection();
