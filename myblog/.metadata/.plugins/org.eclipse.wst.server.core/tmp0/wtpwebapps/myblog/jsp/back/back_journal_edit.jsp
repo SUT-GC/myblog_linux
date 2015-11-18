@@ -214,7 +214,7 @@
                         <hr/>
                         <div class="input_buttons">
                             <input type="submit" value ="确认修改" onclick="return confirm('是否提交修改内容')"class="btn btn-success input_buttons_submit"/>
-                            <a href="back_journal_admin.html"><input type="button" onclick="return confirm('是否重置修改内容？')" value ="放弃修改" class="btn btn-primary input_buttons_reset"/></a>
+                            <a href="back_journal_admin.jsp"><input type="button" onclick="return confirm('是否重置修改内容？')" value ="放弃修改" class="btn btn-primary input_buttons_reset"/></a>
                         </div>
                         </form>
                     </div>

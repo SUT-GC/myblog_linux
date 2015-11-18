@@ -34,6 +34,15 @@
             padding: 0px 10px 0px 10px;
             background-color: #F5F5F5;
         }
+        code{
+				background-color: #000000;
+				color:#00FF00;
+				border-radius:0px;
+				font-weight: bold;
+		}
+		blockquote{
+			background-color: gainsboro;
+		}
     </style>
 
 </head>
@@ -42,10 +51,12 @@
 <%
 	int id = -1;
 	String classifyS = "";
+	String journalcontent = "";
 	Journal journal = null;
 	if(request.getParameter("id")!= null){
 		id = Integer.parseInt(request.getParameter("id"));
 		journal = JournalDao.selectByID(id);
+		journalcontent = journal.getContent();
 		switch (journal.getClassify()){
 		case 1: classifyS = "java"; break;
 		case 2: classifyS = "算法"; break;
@@ -97,7 +108,8 @@
                 <span class="date_data"><%=journal.getDatetime()%></span>
             </div>
             <div class="content" readonly>
-                <pre class="content_text" ><%=journal.getContent()%></pre>
+            	<div style="display:none"><textarea class="content_text" id = "content_temp"><%=journalcontent %></textarea></div>
+                <div class="content_text"  id = "content_text"></div>
                 <div class="reply">
                     <!--文本编写框start-->
                     <div class="reply-editor">
@@ -148,7 +160,15 @@
 
             <!--引入 wangEditor.js-->
             <script type="text/javascript" src='js/wangEditor-1.1.0-min.js'></script>
+            <script type="text/javascript" src='js/showdown.min.js'></script>
             <script type="text/javascript">
+            
+            var text = document.getElementById("content_temp").value;;
+            var converter = new showdown.Converter();
+            var html = converter.makeHtml(text);
+            document.getElementById("content_text").innerHTML = html;
+            
+            
             /*
     		 * -1: 未执行检查代码
     		 * 0: 用户未登录
