@@ -12,7 +12,7 @@
 	margin-right: 5%;
 	border-radius: 5px;
 	padding: 10px;
-	font-size: 17px;
+	font-size: 20px;
 }
 .input_content_textarea{
 	border: solid 1px #999;

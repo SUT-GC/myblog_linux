@@ -174,7 +174,7 @@
                         <hr/>
                         <div class="input_content">
                             <span class="input_title_label">the content of your article:</span>
-                            <textarea name="new_content" class="input_content_textarea" style="width: 69%;" rows="10;"><%=journal.getContent() %> </textarea><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                            <textarea name="new_content" class="input_content_textarea" style="width: 69%;" rows="10;"><%=journal.getContent() %> </textarea><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                         </div>
                         <hr/>
                         <div class="input_submit">
