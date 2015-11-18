@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="&lt;li&gt;&lt;a href=&quot;&lt;%=urlp%&gt;prompt/prompt.jsp&quot; class=&quot;three-d&quot;&gt;" key="selection"/>
+		<item value="input_content_textarea" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="input_content_textarea"/>
+			<item value="article_content"/>
 			<item value="&lt;li&gt;&lt;a href=&quot;&lt;%=urlp%&gt;prompt/prompt.jsp&quot; class=&quot;three-d&quot;&gt;"/>
 			<item value="prompt/prompt.jsp"/>
 			<item value="head"/>
 			<item value="Tool"/>
 			<item value="img8.gif"/>
 			<item value="8."/>
-			<item value="/myblog/jsp/updateheadimg"/>
-			<item value="/myblog/updateheadimg"/>
 		</list>
 		<list key="replacehistory">
 			<item value="&lt;li&gt;&lt;a href=&quot;&lt;%=urlp%&gt;update/update.jsp&quot; class=&quot;three-d&quot;&gt;&#x0A;        TA"/>
@@ -28,7 +28,7 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="289" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value="488" key="DIALOG_HEIGHT"/>
+		<item value="516" key="DIALOG_HEIGHT"/>
 		<item value="724" key="DIALOG_X_ORIGIN"/>
 		<item value="134" key="DIALOG_Y_ORIGIN"/>
 	</section>
