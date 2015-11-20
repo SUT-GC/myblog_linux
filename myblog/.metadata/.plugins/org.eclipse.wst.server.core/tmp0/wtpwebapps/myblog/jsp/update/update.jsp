@@ -51,6 +51,8 @@ body {
 			<h2 class="title">时光轴......</h2>
 			<h3 class="posted">Time axis ......</h3>
 			<div class="story">
+				<p><h4><em><strong>  GC博客修改bug:修改以前发表的日志,不会改变之前发表的时间.
+				<a style="float:right">2015-11-20 12:10</a></strong></em></h4> </p>
 				<p><h4><em><strong>  GC博客支持MarkDown文本编写功能。
 				<a style="float:right">2015-11-18 19:10</a></strong></em></h4> </p>
 				<p><h4><em><strong>  GC博客日志页面文章字大小改成内容:15px,标题:30px,作者:20px(YP的建议)。

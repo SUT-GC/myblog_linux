@@ -95,6 +95,7 @@ public class EditJournalRelease extends HttpServlet {
 			journal.setPrivate_pass(-1);
 		}
 		// 封裝時間，并且輸入journal對象
+		journal.setDatetime(new Date());
 		System.out.println(journal);
 
 		/*

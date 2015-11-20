@@ -247,7 +247,6 @@ public class JournalDao {
 							+ "article_summary = '"+journal.getSummary()+"',"
 							+ "article_classify = '"+journal.getClassify()+"',"
 							+ " article_image = '"+journal.getImgpath()+"',"
-							+ "article_date = '"+sdf.format(journal.getDatetime())+"',"
 							+ "article_private_is = '"+journal.getPrivate_is()+"',"
 							+ "article_private_pass = '"+journal.getPrivate_pass()+"'"
 							+ "where article_id = '"+journal.getJournal_id()+"';";
