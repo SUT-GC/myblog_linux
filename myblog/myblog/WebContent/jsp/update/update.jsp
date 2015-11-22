@@ -51,6 +51,8 @@ body {
 			<h2 class="title">时光轴......</h2>
 			<h3 class="posted">Time axis ......</h3>
 			<div class="story">
+			    <p><h4><em><strong>  GC博客拉入站长统计.
+				<a style="float:right">2015-11-21 21:30</a></strong></em></h4> </p>
 				<p><h4><em><strong>  GC博客修改bug:修改以前发表的日志,不会改变之前发表的时间.
 				<a style="float:right">2015-11-20 12:10</a></strong></em></h4> </p>
 				<p><h4><em><strong>  GC博客支持MarkDown文本编写功能。
@@ -140,5 +142,8 @@ body {
             maxSize: 22
         });
     </script>
+ <!-- 站长统计 -->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256817075'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1256817075%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+<!-- 站长统计结束 -->
 </body>
 </html>

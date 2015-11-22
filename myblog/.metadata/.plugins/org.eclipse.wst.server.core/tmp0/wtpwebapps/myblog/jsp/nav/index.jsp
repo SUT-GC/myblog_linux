@@ -8,7 +8,7 @@
     pageEncoding="utf-8" errorPage="../error.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
+<head>1
 <!--java 绝对地址 start  -->
 <%
 	String urlp = application.getContextPath()+"/jsp/";
@@ -150,6 +150,9 @@
   <div class="blank">Designed and built with all the love in the world by <a href="#">@GC</a></div>
   <div class="blank-bottom">用爱创造世界</div>
 <!--留白end-->
+<!-- 站长统计 -->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256817075'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1256817075%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+<!-- 站长统计结束 -->
 </body>
 </html>
   <script type="text/javascript">
